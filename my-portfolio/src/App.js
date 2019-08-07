@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import Button from "@material-ui/core/Button";
 
 class App extends Component {
   // Initialize state
@@ -31,9 +32,9 @@ class App extends Component {
           projects.map((project, index) => (
             <div key={project.name}>
               <p>
-                <b>
-                  <a href={project.html_url}>{project.name}</a>
-                </b>
+                <Button variant="contained" href={project.html_url}>
+                  {project.name}
+                </Button>
               </p>
               <p>{project.description}</p>
             </div>
