@@ -1,11 +1,19 @@
-module.exports = (req, res) => {
-  let projectsData = [
-    {
-      name: "BNZ",
-      html_url: "http://bnz.co.nz",
-      description: "Banks aren't boring"
-    }
-  ];
+const fetch = require("node-fetch");
 
-  res.json(projectsData);
+const githubRepoUrl = "https://api.github.com/users/marcusklein/repos";
+
+module.exports = (req, res) => {
+  fetch(githubRepoUrl)
+    .then(res => res.json())
+    .then(projects => {
+      const gitHubProjects = projects.map(project => {
+        return {
+          name: project.name,
+          html_url: project.html_url,
+          description: project.description
+        };
+      });
+
+      res.json(gitHubProjects);
+    });
 };
