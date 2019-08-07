@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const githubRepoUrl = "https://api.github.com/users/marcusklein/repos";
+const githubRepoUrl = "https://api.github.com/users/alex-h-k/repos";
 
 module.exports = (req, res) => {
   fetch(githubRepoUrl)
